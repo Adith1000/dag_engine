@@ -1,0 +1,7 @@
+[
+    { "id": "A", "priority": 2, "deps": [] },
+    { "id": "B", "priority": 1, "deps": ["A"] },
+    { "id": "C", "priority": 3, "deps": ["A"] },
+    { "id": "D", "priority": 1, "deps": ["B", "C"] }
+  ]
+  
