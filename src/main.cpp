@@ -1,5 +1,6 @@
 #include "parser.hpp"
 #include "task.hpp"
+#include "scheduler.hpp"
 #include <iostream>
 
 int main(int argc, char** argv) {
@@ -16,6 +17,11 @@ int main(int argc, char** argv) {
                       << " (priority=" << t.priority 
                       << ", deps=" << t.deps.size() << ")\n";
         }
+
+        run_scheduler(tasks, [](const Task& t) {
+            std::cout << "[RUN] " << t.id << " (priority=" << t.priority << ")\n";
+        });
+        
     } catch (const std::exception& e) {
         std::cerr << "Error: " << e.what() << "\n";
         return 2;
@@ -23,3 +29,4 @@ int main(int argc, char** argv) {
 
     return 0;
 }
+
